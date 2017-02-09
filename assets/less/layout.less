@@ -289,11 +289,11 @@ Utils
 			background: inherit;
 			transition: transform 20s @easeOutExpo;
 		}
-
+		
 		&:after {
 			content: '';
-			.absolute();
-			.size(100%,100%);
+			position: absolute; top: -5%; left: -5%;
+			.size(110%,110%);
 			background: rgba(0,0,0,.7);
 			transition: opacity 2s @easeOutExpo;
 			z-index: 5;
