@@ -1,0 +1,207 @@
+@keyframes spin {
+    0% { 
+        transform: rotate(0deg);
+    }
+    50% { 
+        transform: rotate(360deg);
+    }
+    100% { 
+        transform: rotate(0deg);
+    }
+}
+
+.project {
+    position: relative;
+    background: @black;
+
+    .cover {
+        position: relative;
+        .size(100%,100vh);
+        background-size: contain;
+        
+        .js-container {
+            position: relative;   
+            z-index: 1;
+            width: 100%; height: ~"calc(100% - 185px)";
+            // max-height: 575px;
+            overflow: hidden;
+
+            .layer {
+                display: block;
+                .absolute();
+                background: @black;
+                z-index: 2;
+                
+                // &:before {
+                //     content: "";
+                //     .absolute();
+                //     .size(25px, 25px);
+                //     border-radius: 50%;
+                //     border: dashed 2px @grey-light;
+                //     animation: spin .8s linear infinite;
+                // }
+            }
+
+            canvas {
+                display: block;
+                position: absolute; top: 0;
+            }
+        }
+
+        .bar {
+            display: block; height: 185px;
+            position: absolute; bottom: 0; right: 0; left: 0;
+            background: @dark;
+            text-align: right;
+            padding: @80px;
+            z-index: 2;
+
+            @media @mobile {
+                text-align: center;
+                padding: @85px @40px;
+            }
+
+            span {
+                font-size: @14px;
+                color: #333333;
+            }
+        }
+    }
+
+    .info {
+        text-align: left;
+        padding: @180px;
+        background: @white;
+
+        @media @mobile {
+            padding: @85px @40px;
+        }
+
+        p {
+            font: @regular @14px/@24px @font;
+            color: #bfbfbf;
+
+            a {
+                color: #bfbfbf;
+                text-decoration: underline;
+
+                &:hover {
+                    color: @black;
+                }
+
+                &:last-of-type {
+                    display: inline-block;
+                    margin-top: @20px;
+                }
+            }
+        }
+    }
+
+    .section {
+        &.padding {
+            padding: @90px;
+
+            @media @mobile {
+                padding: @5px @20px;
+            }
+
+            > img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                margin: @90px auto;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+                
+                @media @mobile {
+                    margin: @40px auto;
+                }
+            }
+        }
+
+        &.cover {
+            height: auto;
+
+            @media @mobile {
+                padding: @5px @20px;
+            }
+
+            &.padding-bottom {
+                padding-bottom: @90px;
+
+                @media @mobile {
+                    padding-bottom: @40px;
+                }
+            }
+
+            > .img {
+                height: 100vh;
+                background-size: cover;
+
+                @media @mobile {
+                    display: none;
+                }
+            }
+
+            > img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                margin: @90px auto;
+                
+                @media @mobile {
+                    margin: @40px auto;
+                }
+
+                &:first-of-type {
+                    margin-top: -150px;
+                    margin-bottom: 0;
+
+                    @media @mobile {
+                        margin-top: @40px;
+                        margin-bottom: @40px;
+                    }
+                }
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .next {
+        display: block;
+        padding: @300px 0;
+        text-align: left;
+        text-decoration: none;
+
+        @media @mobile {
+            padding: @90px 0;
+        }
+
+        span {
+            display: block;
+            font: @regular @18px/@24px @font;
+            text-decoration: underline;
+            color: #404040;
+        }
+
+        p {
+            font: @regular @14px/@24px @font;
+            color: #404040;
+        }
+
+        span, p {
+            transition: color .8s @easeOutExpo;
+        }
+        
+        &:hover {
+            span, p {
+                color: @white;
+            }
+        }
+    }
+}
