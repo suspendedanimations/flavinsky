@@ -243,6 +243,7 @@ Utils
 		background-position: center;
 		cursor: pointer;
 		overflow: hidden;
+		backface-visibility: hidden;
 
 		span {
 			display: none;
@@ -276,7 +277,7 @@ Utils
 			margin-left: auto;
 			margin-right: auto;
 			background-size: cover;
-
+			
 			span {
 				display: block;
 			}
@@ -284,8 +285,8 @@ Utils
 
 		&:before {
 			content: '';
-			.absolute();
-			.size(100%,100%);
+			position: absolute; top: -5%; left: -5%;
+			.size(110%,110%);
 			background: inherit;
 			transition: transform 20s @easeOutExpo;
 		}

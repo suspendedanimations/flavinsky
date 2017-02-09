@@ -95,7 +95,7 @@ class Smooth {
         
         window.delta = this.pos.current * 0.1;
 
-        this.dom.section.style[this.prefix] = this.getTransform(-Math.abs(this.pos.current.toFixed(2)));
+        this.dom.section.style[this.prefix] = this.getTransform(-Math.abs(this.pos.current.toFixed()));
         
         const size = this.scrollbar.drag.height;
         const bounds = (this.direction == 'vertical') ? config.height : config.width;
@@ -103,7 +103,6 @@ class Smooth {
         const clamp = utils.js.clamp(0, value-size, value+size);
         
         this.scrollbar.drag.el.style[this.prefix] = this.getTransform(clamp.toFixed(2));
-    
     }
     
     /* -----
